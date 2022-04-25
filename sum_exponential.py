@@ -3,13 +3,13 @@ from math import exp
 
 
 class SumExponential:
+    # only works if the parameters eta are distinct
 
     def __init__(self, eta):
         self._eta = eta
         self._prod_eta = [prod([(eta_j - eta_i) for eta_j in eta[:i]+eta[i+1:]]) for i, eta_i in enumerate(eta)]
         self._weights = [prod([eta_j / (eta_j - eta_i) for eta_j in eta[:i]+eta[i+1:]]) for i, eta_i in enumerate(eta)]
 
-    # only works if the parameters eta are distinct
     def pdf(self, x):
         return [prod(self._eta) * sum([exp(-eta_i * xx) / self._prod_eta[i]
                                       for i, eta_i in enumerate(self._eta)]) for xx in x]
