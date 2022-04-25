@@ -36,7 +36,7 @@ if __name__ == '__main__':
     import matplotlib.pyplot as plt
     from generator import periodsLogUniform
 
-    eta = [1/x for x in periodsLogUniform(10, 10, 100)]
+    eta = [0.01, 0.2, 0.9, 0.0001]
     eta = list(set(eta))
     t_range = linspace(0.001, 1000)
 
