@@ -34,7 +34,6 @@ class SumExponential:
 if __name__ == '__main__':
     from numpy import linspace
     import matplotlib.pyplot as plt
-    from generator import periodsLogUniform
 
     eta = [0.01, 0.2, 0.9, 0.0001]
     eta = list(set(eta))
