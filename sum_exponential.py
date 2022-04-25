@@ -9,6 +9,7 @@ class SumExponential:
         self._prod_eta = [prod([(eta_j - eta_i) for eta_j in eta[:i]+eta[i+1:]]) for i, eta_i in enumerate(eta)]
         self._weights = [prod([eta_j / (eta_j - eta_i) for eta_j in eta[:i]+eta[i+1:]]) for i, eta_i in enumerate(eta)]
 
+    # only works if the parameters eta are distinct
     def pdf(self, x):
         return [prod(self._eta) * sum([exp(-eta_i * xx) / self._prod_eta[i]
                                       for i, eta_i in enumerate(self._eta)]) for xx in x]
@@ -35,7 +36,7 @@ if __name__ == '__main__':
     from numpy import linspace
     import matplotlib.pyplot as plt
 
-    eta = [0.01, 0.2, 0.9, 0.01]
+    eta = [0.01, 0.2, 0.9, 0.009]
     eta = list(set(eta))
     t_range = linspace(0.001, 1000)
 
