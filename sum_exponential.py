@@ -35,7 +35,7 @@ if __name__ == '__main__':
     from numpy import linspace
     import matplotlib.pyplot as plt
 
-    eta = [0.01, 0.2, 0.9, 0.0001]
+    eta = [0.01, 0.2, 0.9, 0.01]
     eta = list(set(eta))
     t_range = linspace(0.001, 1000)
 
